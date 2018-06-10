@@ -19,6 +19,10 @@ Overview マップを起動すると、二体のキャラクターがアニメ�
 
 [![](https://img.youtube.com/vi/qqPIyJWBy04/0.jpg)](https://www.youtube.com/watch?v=qqPIyJWBy04)
 
+## 注意事項
+
+こちらのサンプルは簡潔に書くために、LODによってブレンド過程でボーンが消失する可能性については考慮していません。また、カーブのブレンドも行っていないので、実際に利用する場合はそちらも対応する必要があると思います。
+
 ## ライセンス
 
 [MIT](/LICENSE "LICENSE")
