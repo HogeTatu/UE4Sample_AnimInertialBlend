@@ -184,7 +184,6 @@ void FAnimNode_InertialBlend::InitTransition(
 	FVector VecX0 = PrimaryCacheValue - RequestedValue;
 	Transition.X0 = VecX0.Size();
 
-
 	if (Transition.X0 >= SMALL_NUMBER)
 	{
 		Transition.NormalizedVecX0 = VecX0 / Transition.X0;
@@ -221,10 +220,12 @@ void FAnimNode_InertialBlend::InitTransition(
 	FQuat InvRequestedValue = RequestedValue.Inverse();
 
 	FQuat Q0 = PrimaryCacheValue * InvRequestedValue;
+	NormalizeQuat(Q0);
 	Q0.ToAxisAndAngle(Transition.AxisX0, Transition.X0);
 	NormalizeAngle(Transition.X0);
 
 	FQuat Qn1 = SecondaryCacheValue * InvRequestedValue;
+	NormalizeQuat(Qn1);
 	float Xn1 = PI;
 
 	if (!FMath::IsNearlyZero(Qn1.W))

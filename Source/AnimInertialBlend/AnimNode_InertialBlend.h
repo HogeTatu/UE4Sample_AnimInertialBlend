@@ -189,8 +189,18 @@ private:
 private:
 	static FORCEINLINE void NormalizeAngle(float& Rad)
 	{
-		FMath::IsNaN(Rad);
 		while (Rad <= -PI) Rad += PI * 2.f;
 		while (Rad >=  PI) Rad -= PI * 2.f;
+	}
+
+	static FORCEINLINE void NormalizeQuat(FQuat& Quat)
+	{
+		if (Quat.W < 0.f)
+		{
+			Quat.X = -Quat.X;
+			Quat.Y = -Quat.Y;
+			Quat.Z = -Quat.Z;
+			Quat.W = -Quat.W;
+		}
 	}
 };
